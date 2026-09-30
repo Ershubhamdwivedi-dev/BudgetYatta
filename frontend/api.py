@@ -1,11 +1,13 @@
 import os
 import requests
-import os
 
-BACKEND_URL = os.getenv(
-    "BACKEND_URL",
-    "http://127.0.0.1:8000"
-).rstrip("/")
+
+BACKEND_URL = os.getenv("BACKEND_URL")
+
+if not BACKEND_URL:
+    BACKEND_URL = "http://127.0.0.1:8000"
+
+BACKEND_URL = BACKEND_URL.rstrip("/")
 
 
 def create_trip(payload):
@@ -37,11 +39,9 @@ def get_trips():
 
     data = response.json()
 
-    # Backend agar {"trips": [...]} return kare
     if isinstance(data, dict) and "trips" in data:
         return data["trips"]
 
-    # Backend direct list return kare
     if isinstance(data, list):
         return data
 
