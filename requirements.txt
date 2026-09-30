@@ -1,9 +1,7 @@
-fastapi
-uvicorn[standard]
-sqlalchemy
-pydantic
-openai
-python-dotenv
-psycopg2-binary
 streamlit
+fastapi
+uvicorn
 requests
+python-dotenv
+pydantic
+python-dotenv
