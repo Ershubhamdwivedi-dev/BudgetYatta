@@ -1,8 +1,6 @@
 import os
 import requests
-from dotenv import load_dotenv
-
-load_dotenv()
+import os
 
 BACKEND_URL = os.getenv(
     "BACKEND_URL",
