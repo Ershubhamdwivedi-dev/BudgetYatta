@@ -5,7 +5,7 @@ import requests
 BACKEND_URL = os.getenv("BACKEND_URL")
 
 if not BACKEND_URL:
-    BACKEND_URL = "http://127.0.0.1:8000"
+    BACKEND_URL = "https://budgetyatta.onrender.com"
 
 BACKEND_URL = BACKEND_URL.rstrip("/")
 
