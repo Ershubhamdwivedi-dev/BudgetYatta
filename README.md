@@ -1,237 +1,248 @@
 # ✈️ BudgetYatta — AI Travel Planner
 
-BudgetYatta is a mini AI-powered travel planning application.
+> **Plan smarter. Travel better. 🌍**
 
-Users can enter their destination, travel duration, number of travellers,
-budget, accommodation preference and travel interests.
+BudgetYatta is a mini **AI-powered travel planning application**.
 
-The application generates a day-by-day travel itinerary and saves the trip
-in a database.
+Users can enter their **destination, travel duration, number of travellers, budget, accommodation preference, and travel interests**.
 
----
-
-## Features
-
-- Travel planning form
-- AI-generated itinerary
-- Budget-based planning
-- Day-by-day itinerary
-- Expense breakdown
-- SQLite database
-- Previous trips
-- View saved trips
-- Delete trips
-- FastAPI backend
-- Streamlit frontend
-- OpenAI API integration
-- Mock fallback when AI API is unavailable
-- Deployment ready
+The application generates a **personalized day-by-day travel itinerary** and saves the trip in a database.
 
 ---
 
-## Tech Stack
+## ✨ Features
 
-### Frontend
-
-Streamlit
-
-### Backend
-
-Python
-FastAPI
-
-### Database
-
-SQLite
-SQLAlchemy
-
-### AI
-
-OpenAI API
-
-### Deployment
-
-Render / Streamlit Cloud
+- 🗺️ Travel planning form
+- 🤖 AI-generated itinerary
+- 💰 Budget-based travel planning
+- 📅 Day-by-day itinerary
+- 💵 Expense breakdown
+- 🗄️ SQLite database
+- 🧳 Previous trips
+- 👁️ View saved trips
+- 🗑️ Delete trips
+- ⚡ FastAPI backend
+- 🎨 Streamlit frontend
+- 🧠 OpenAI API integration
+- 🔄 Mock fallback when AI API is unavailable
+- 🚀 Deployment ready
 
 ---
 
-## Architecture
+## 🛠️ Tech Stack
 
-User
+### 🎨 Frontend
 
-↓
+- **Streamlit**
 
-Streamlit Frontend
+### ⚙️ Backend
 
-↓
+- **Python**
+- **FastAPI**
 
-FastAPI Backend
+### 🗄️ Database
 
-↓
+- **SQLite**
+- **SQLAlchemy**
 
-AI Service
+### 🤖 AI
 
-↓
+- **OpenAI API**
 
-OpenAI API
+### ☁️ Deployment
 
-↓
-
-SQLite Database
-
-↓
-
-FastAPI
-
-↓
-
-Streamlit Frontend
+- **Render**
+- **Streamlit Cloud**
 
 ---
 
-## Project Structure
+## 🏗️ Architecture
 
+```text
+                    👤 User
+                       │
+                       ▼
+              🎨 Streamlit Frontend
+                       │
+                       ▼
+                ⚡ FastAPI Backend
+                       │
+                       ▼
+                  🤖 AI Service
+                       │
+                       ▼
+                 🧠 OpenAI API
+                       │
+                       ▼
+                 🗄️ SQLite DB
+                       │
+                       ▼
+                ⚡ FastAPI
+                       │
+                       ▼
+              🎨 Streamlit Frontend
+```
+
+---
+
+## 📁 Project Structure
+
+```text
 BudgetYatta/
-
-backend/
-
-- main.py
-- database.py
-- models.py
-- schemas.py
-- ai_service.py
-
-frontend/
-
-- app.py
-- api.py
-- styles.py
-
-data/
-
-- budgetyatta.db
+│
+├── backend/
+│   ├── main.py
+│   ├── database.py
+│   ├── models.py
+│   ├── schemas.py
+│   └── ai_service.py
+│
+├── frontend/
+│   ├── app.py
+│   ├── api.py
+│   └── styles.py
+│
+├── data/
+│   └── budgetyatta.db
+│
+└── requirements.txt
+```
 
 ---
 
-## Run Locally
+# 🚀 Run Locally
 
-### 1. Clone repository
+## 1️⃣ Clone Repository
 
+```bash
 git clone YOUR_GITHUB_REPOSITORY
-
 cd BudgetYatta
+```
 
 ---
 
-### 2. Create virtual environment
+## 2️⃣ Create Virtual Environment
 
+```bash
 python -m venv venv
+```
 
-Activate on Windows:
+### Activate on Windows
 
+```bash
 venv\Scripts\activate
+```
 
 ---
 
-### 3. Install dependencies
+## 3️⃣ Install Dependencies
 
+```bash
 pip install -r requirements.txt
+```
 
 ---
 
-### 4. Configure environment
+## 4️⃣ Configure Environment
 
-Create a `.env` file.
+Create a `.env` file and add:
 
-Add:
-
+```env
 OPENAI_API_KEY=your_api_key
-
 OPENAI_MODEL=gpt-4o-mini
-
-BACKEND_URL=http://127.0.0.1:8000
+BACKEND_URL=https://budgetyatta.onrender.com
+```
 
 ---
 
-## Start Backend
+# ⚡ Start Backend
 
 Run:
 
+```bash
 uvicorn backend.main:app --reload
+```
 
-Backend will run at:
+Backend will run locally at:
 
+```text
 http://127.0.0.1:8000
+```
 
-API documentation:
+### 🌐 Production Backend
 
-http://127.0.0.1:8000/docs
+```text
+https://budgetyatta.onrender.com
+```
+
+### 📚 API Documentation
+
+```text
+https://budgetyatta.onrender.com/docs
+```
 
 ---
 
-## Start Frontend
+# 🎨 Start Frontend
 
 Open another terminal.
 
-Run:
-
+```bash
 cd frontend
-
 streamlit run app.py
+```
 
 Frontend will run at:
 
+```text
 http://localhost:8501
+```
 
 ---
 
-## AI Fallback
+# 🤖 AI Fallback
 
-If OPENAI_API_KEY is not available or the AI API fails,
-BudgetYatta automatically generates a mock itinerary.
+If `OPENAI_API_KEY` is not available or the OpenAI API fails, BudgetYatta automatically generates a **mock itinerary**.
 
-This makes the application usable for development and demonstration
-without requiring a paid AI API.
+This makes the application usable for **development and demonstration** without requiring a paid AI API.
 
 ---
 
-## Database
+# 🗄️ Database
 
-The application uses SQLite with SQLAlchemy.
+The application uses **SQLite with SQLAlchemy**.
 
 Each trip stores:
 
-- Trip ID
-- Destination
-- Duration
-- Travellers
-- Budget
-- Accommodation
-- Interests
-- Generated itinerary
-- Estimated cost
-- Created date
+- 🆔 Trip ID
+- 📍 Destination
+- 📅 Duration
+- 👥 Travellers
+- 💰 Budget
+- 🏨 Accommodation
+- ❤️ Interests
+- 📝 Generated itinerary
+- 💵 Estimated cost
+- 🕒 Created date
 
 ---
 
-## AI Development Tools
+# 🤖 AI Development Tools
 
 AI tools were used during development for:
 
-- Code generation assistance
-- Debugging
-- API structure
-- UI ideas
-- Prompt design
-- Documentation assistance
+- 💻 Code generation assistance
+- 🐛 Debugging
+- 🔌 API structure
+- 🎨 UI ideas
+- ✍️ Prompt design
+- 📚 Documentation assistance
 
-The application structure, integration, configuration and final
-implementation were reviewed and modified as part of the development
-process.
+The application structure, integration, configuration, and final implementation were reviewed and modified as part of the development process.
 
 ---
 
-## Assumptions
+# 📌 Assumptions
 
 - Travel costs are approximate.
 - AI-generated information should be verified before real travel.
@@ -240,26 +251,52 @@ process.
 
 ---
 
-## Limitations
+# ⚠️ Limitations
 
-- No hotel or flight booking.
-- No real-time travel pricing.
-- No authentication.
-- No live maps integration.
-- AI-generated costs may not reflect current market prices.
+- ❌ No hotel or flight booking
+- ❌ No real-time travel pricing
+- ❌ No authentication
+- ❌ No live maps integration
+- ❌ AI-generated costs may not reflect current market prices
 
 ---
 
-## Future Improvements
+# 🔮 Future Improvements
 
-- User authentication
-- Google Maps integration
-- Hotel API
-- Flight API
-- Real-time weather
-- Currency conversion
-- Trip editing
-- Regenerate itinerary
-- Mobile-first UI
-- PostgreSQL/Supabase
-- Caching
+- 🔐 User authentication
+- 🗺️ Google Maps integration
+- 🏨 Hotel API
+- ✈️ Flight API
+- 🌦️ Real-time weather
+- 💱 Currency conversion
+- ✏️ Trip editing
+- 🔄 Regenerate itinerary
+- 📱 Mobile-first UI
+- 🐘 PostgreSQL / Supabase
+- ⚡ Caching
+
+---
+
+## 🌍 Deployment
+
+### Backend
+
+**Render**
+
+```text
+https://budgetyatta.onrender.com
+```
+
+### Frontend
+
+**Streamlit Cloud**
+
+The Streamlit frontend connects to the deployed FastAPI backend through the `BACKEND_URL` configuration.
+
+---
+
+## 👨‍💻 Project
+
+**BudgetYatta — AI Travel Planner**
+
+Built using **Python + Streamlit + FastAPI + SQLite + SQLAlchemy + OpenAI API**.
